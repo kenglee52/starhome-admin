@@ -1,0 +1,61 @@
+.sidebar-custom {
+  width: 250px;
+  min-height: 100vh;
+  background-color: #198754; /* Bootstrap success */
+  transition: all 0.3s ease;
+  font-family: 'Noto Sans Lao', sans-serif;
+  padding: 1rem;
+  color: white;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 6px 0;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(6px);
+}
+
+.active-link {
+  background-color: rgba(255, 255, 255, 0.25);
+  font-weight: bold;
+  border-left: 4px solid white;
+}
+
+.accordion-item {
+  background-color: transparent !important;
+  border: none;
+}
+
+.accordion-button {
+  background-color: transparent ;
+  color: white !important;
+  box-shadow: none;
+  font-weight: bold;
+  padding: 0.75rem 1rem;
+}
+.accordion-button:hover {
+   background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(6px);
+}
+.accordion-button:not(.collapsed) {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.accordion-body {
+  padding: 0.5rem 1.5rem;
+}
+
+.accordion-button::after {
+  filter: invert(1); /* icon dropdown color to white */
+}
