@@ -167,7 +167,7 @@ const Dashboard = () => {
 
 
   const barData = {
-    labels: productStats.map(p => p.ProductType.productTypeName),
+    labels: productStats.map(p => p.producttype.productTypeName),
     datasets: [
       {
         label: "ຈຳນວນສິນຄ້າ",
@@ -408,7 +408,7 @@ const Dashboard = () => {
                 <Card.Body>
                   <i class="fas fa-money-bill-wave"></i>
                   <h5 className="fs-6 fs-md-5">ລາຍຮັບ</h5>
-                  <h3 className="fw-bold fs-4 fs-md-3">{income.toLocaleString()}</h3>
+                  <h3 className="fw-bold fs-4 fs-md-3">{income}</h3>
                 </Card.Body>
               </Card>
             </Col>
@@ -417,7 +417,7 @@ const Dashboard = () => {
                 <Card.Body>
                   <i class="fas fa-credit-card"></i>
                   <h5 className="fs-6 fs-md-5">ລາຍຈ່າຍ</h5>
-                  <h3 className="fw-bold fs-4 fs-md-3">{expense.toLocaleString()}</h3>
+                  <h3 className="fw-bold fs-4 fs-md-3">{expense}</h3>
                 </Card.Body>
               </Card>
             </Col>

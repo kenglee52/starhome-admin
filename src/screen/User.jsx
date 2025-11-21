@@ -163,10 +163,10 @@ const User = () => {
                                     <tbody>
                                         {Users.map((user) => (
                                             <tr key={user.userID}>
-                                                <td>{user.Employee.employeeName}</td>
-                                                <td>{user.Employee.employeeGender}</td>
-                                                <td>{user.Employee.employeeTel}</td>
-                                                <td>{user.Role.roleStatus}</td>
+                                                <td>{user.employee.employeeName}</td>
+                                                <td>{user.employee.employeeGender}</td>
+                                                <td>{user.employee.employeeTel}</td>
+                                                <td>{user.role.roleStatus}</td>
                                                 <td>
                                                     <div className="dropdown">
                                                         <button className="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">

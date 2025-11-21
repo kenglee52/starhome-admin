@@ -781,7 +781,7 @@ const Product = () => {
           const option = document.createElement('option');
           option.value = p.provinceID;
           option.textContent = p.provinceName;
-          if (product.District && p.provinceID === product.District.provinceID) {
+          if (product.district && p.provinceID === product.district.provinceID) {
             option.selected = true;
           }
           provinceSelect.appendChild(option);
@@ -806,7 +806,7 @@ const Product = () => {
         };
 
         // Initial district load
-        updateDistrictOptions(product.District?.provinceID);
+        updateDistrictOptions(product.district?.provinceID);
 
         // Fill product type dropdown
         ProductTypes.forEach(p => {
@@ -1009,7 +1009,7 @@ const Product = () => {
         <div class="media-item card">
           <div class="position-relative">
             <span style="position:absolute; top:5px; left:5px; background:rgba(0,0,0,0.6); color:#fff; padding:2px 6px; border-radius:4px;">#${index + 1}</span>
-            <img src="http://10.50.210.198:3000/${img.replace(/\\/g, '/')}" class="card-img-top media-preview" alt="Product Image" />
+            <img src="${img.replace(/\\/g, '/')}" class="card-img-top media-preview" alt="Product Image" />
           </div>
           <div class="card-body p-2 text-end">
             <button class="btn btn-danger btn-sm btn-delete-image" data-index="${index}">
@@ -1030,7 +1030,7 @@ const Product = () => {
           <div class="position-relative">
             <span style="position:absolute; top:5px; left:5px; background:rgba(0,0,0,0.6); color:#fff; padding:2px 6px; border-radius:4px;">#${index + 1}</span>
             <video controls class="card-img-top media-preview">
-              <source src="http://10.50.210.198:3000/${vid.replace(/\\/g, '/')}" type="video/mp4">
+              <source src="${vid.replace(/\\/g, '/')}" type="video/mp4">
             </video>
           </div>
           <div class="card-body p-2 text-end">
@@ -1063,20 +1063,20 @@ const Product = () => {
               <div class="col-md-6">
                 <p><strong>ລະຫັດ:</strong> ${product.productID}</p>
                 <p><strong>ບ້ານ:</strong> ${product.village}</p>
-                <p><strong>ເມືອງ:</strong> ${product.District.districtName}</p>
+                <p><strong>ເມືອງ:</strong> ${product.district.districtName}</p>
               </div>
               <div class="col-md-6">
-                <p><strong>ແຂວງ:</strong> ${product.District.Province.provinceName}</p>
-                <p><strong>ລາຄາ:</strong> ${Number(product.price).toLocaleString()} ${product.Currency.currencyName}</p>
+                <p><strong>ແຂວງ:</strong> ${product.district.province.provinceName}</p>
+                <p><strong>ລາຄາ:</strong> ${Number(product.price).toLocaleString()} ${product.currency.currencyName}</p>
                 <p><strong>ສະຖານະ:</strong> ${product.status}</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <p><strong>ຊື່ເຈົ້າຂອງຊັບສິນ:</strong> ${product.Owner.ownerName}</p>
+                <p><strong>ຊື່ເຈົ້າຂອງຊັບສິນ:</strong> ${product.owner.ownerName}</p>
               </div>
               <div class="col-md-6">
-                <p><strong>ເບີໂທເຈົ້າຂອງຊັບສິນ:</strong> ${product.Owner.ownerTel}</p>
+                <p><strong>ເບີໂທເຈົ້າຂອງຊັບສິນ:</strong> ${product.owner.ownerTel}</p>
               </div>
             </div>
             <div class="row">
@@ -1207,9 +1207,9 @@ const Product = () => {
                         variant="top"
                         src={
                           Array.isArray(product.image)
-                            ? `http://10.50.210.198:3000/${product.image[0]?.replace(/\\/g, '/') || ''}`
+                            ? `${product.image[0]?.replace(/\\/g, '/') || ''}`
                             : product.image
-                              ? `http://10.50.210.198:3000/${product.image.replace(/\\/g, '/')}`
+                              ? `${product.image.replace(/\\/g, '/')}`
                               : ''
                         }
                         className="img-fluid w-100"
@@ -1232,14 +1232,14 @@ const Product = () => {
                     <Card.Body>
                       <p style={{ fontSize: "clamp(12px, 1.8vw, 15px)" }}>
                         <span className='fw-bold'>ບ້ານ:</span> {product.village}<br />
-                        <span className='fw-bold'>ເມືອງ:</span> {product.District?.districtName}<br />
-                        <span className='fw-bold'>ແຂວງ:</span> {product.District?.Province?.provinceName}
+                        <span className='fw-bold'>ເມືອງ:</span> {product.district?.districtName}<br />
+                        <span className='fw-bold'>ແຂວງ:</span> {product.district?.province?.provinceName}
                       </p>
                     </Card.Body>
 
                     <Card.Footer className="bg-white border-0 d-flex justify-content-between align-items-center">
                       <span className="fw-bold text-danger" style={{ fontSize: "clamp(12px, 2vw, 16px)" }}>
-                        ລາຄາ: {Number(product.price).toLocaleString()} {product.Currency.currencyName}
+                        ລາຄາ: {Number(product.price).toLocaleString()} {product.currency.currencyName}
                       </span>
                       <span className="fw-bold text-success" style={{ fontSize: "clamp(12px, 2vw, 16px)" }}>
                         {product.status}

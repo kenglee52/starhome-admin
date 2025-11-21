@@ -179,6 +179,12 @@ const SearchOwner = () => {
         <div class="card-body">
           <form id="productForm" enctype="multipart/form-data">
             <h5 class="text-danger">ຂໍ້ມູນຊັບສິນ (Product)</h5>
+              <div class="row mb-3">
+                <div class="col-md-12">
+                <label class="form-label">ລະຫັດ</label>
+                <input type="text" name="productID" class="form-control" required>
+              </div>
+              </div>
             <div class="row g-3 mb-3">
               <div class="col-md-6">
                 <label class="form-label">ຊື່ຊັບສິນ</label>
@@ -333,7 +339,7 @@ const SearchOwner = () => {
                         }
 
                         await saveProduct(
-                            product,
+                            formData.get("productID"),
                             formData.get('productName'),
                             ownerID,
                             formData.get('productTypeID'),

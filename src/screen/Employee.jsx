@@ -355,12 +355,12 @@ const Employee = () => {
                     const option = document.createElement('option');
                     option.value = p.provinceID;
                     option.textContent = p.provinceName;
-                    if (p.provinceID === x.District.provinceID) option.selected = true;
+                    if (p.provinceID === x.district.provinceID) option.selected = true;
                     provinceSelect.appendChild(option);
                 });
 
                 // เติมอำเภอและ filter ตามจังหวัด
-                const filteredDistricts = Districts.filter(d => d.provinceID == x.District.provinceID);
+                const filteredDistricts = Districts.filter(d => d.provinceID == x.district.provinceID);
                 districtSelect.innerHTML = '<option value="">-- ເລືອກເມືອງ --</option>';
                 filteredDistricts.forEach(d => {
                     const option = document.createElement('option');
@@ -605,10 +605,10 @@ const Employee = () => {
                                                 <td>{new Date(x.birth).toLocaleDateString()}</td>
                                                 <td>{x.employeeTel}</td>
                                                 <td>{x.employeeVillage}</td>
-                                                <td>{x.District.districtName}</td>
-                                                <td>{x.District.Province.provinceName}</td>
+                                                <td>{x.district.districtName}</td>
+                                                <td>{x.district.province.provinceName}</td>
                                                 <td>{x.salary}</td>
-                                                <td>{x.Position.positionName}</td>
+                                                <td>{x.position.positionName}</td>
                                                 <td>
                                                     <div className="dropdown">
                                                         <button className="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
