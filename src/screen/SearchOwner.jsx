@@ -76,9 +76,9 @@ const SearchOwner = () => {
         }
     };
 
-    const saveProduct = async (productID, productName, ownerID, productTypeID, village, districtID, status, size, price, images, videos, tel, description) => {
+    const saveProduct = async (productID, productName, ownerID, productTypeID, village, districtID, status, size, price, images, videos, tel, description, currencyID) => {
         try {
-            if (!productID || !productName || !ownerID || !productTypeID || !districtID || !status || !price) {
+            if (!productID || !productName || !ownerID || !productTypeID || !districtID || !status || !price || !currencyID) {
                 throw new Error('ກະລຸນາປ້ອນຂໍ້ມູນທີ່ຈຳເປັນໃຫ້ຄົບຖ້ວນ');
             }
             const formData = new FormData();
@@ -93,6 +93,7 @@ const SearchOwner = () => {
             formData.append('price', price);
             formData.append('tel', tel || '');
             formData.append('description', description || '');
+            formData.append('currencyID', currencyID || '');
 
             if (images && images.length > 0) {
                 for (let i = 0; i < images.length; i++) {
@@ -220,6 +221,7 @@ const SearchOwner = () => {
                   <option value="">-- ເລືອກ --</option>
                   <option value="ເຊົ່າ">ເຊົ່າ</option>
                   <option value="ຂາຍ">ຂາຍ</option>
+                  <option value="ເຊົ່າຫຼືຂາຍ">ເຊົ່າຫຼືຂາຍ</option>
                 </select>
               </div>
               <div class="col-md-4">
@@ -246,6 +248,15 @@ const SearchOwner = () => {
             <div class="mb-3">
               <label class="form-label">ລາຍລະອຽດ</label>
               <textarea name="description" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">ສະກຸນເງິນ</label>
+              <select name="currencyID" class="form-control" required>
+                  <option value="">-- ເລືອກ --</option>
+                  <option value="1">ກີບ</option>
+                  <option value="2">ໂດລາ</option>
+                  <option value="3">ບາດ</option>
+                </select>
             </div>
 
             <div class="text-end">
@@ -315,8 +326,6 @@ const SearchOwner = () => {
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     const formData = new FormData(form);
-                    const product = document.getElementById('AutoId').value;
-
                     Swal.fire({
                         title: 'ກຳລັງບັນທຶກ',
                         text: 'ກະລຸນາລໍຖ້າ...',
@@ -351,7 +360,9 @@ const SearchOwner = () => {
                             imageFiles,
                             videoFiles,
                             '',
-                            formData.get('description')
+                            formData.get('description'),
+                            formData.get("currencyID")
+                            
                         );
 
                         await Swal.fire({
