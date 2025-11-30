@@ -750,9 +750,9 @@ const Product = () => {
               <label class="form-label">ສະກຸນເງິນ</label>
                 <select name="currency" id="editCurrencySelect" class="form-control" required>
                   <option value="">-- ເລືອກ --</option>
-                  <option value="0">ກີບ</option>
-                  <option value="1">ໂດລາ</option>
-                  <option value="2">ບາດ</option>
+                  <option value="1">ກີບ</option>
+                  <option value="2">ໂດລາ</option>
+                  <option value="3">ບາດ</option>
                 </select>
             </div>
           </div>
