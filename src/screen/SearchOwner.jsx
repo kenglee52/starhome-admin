@@ -340,12 +340,12 @@ const SearchOwner = () => {
                         const imageFiles = form.querySelector('input[name="image"]').files;
                         const videoFiles = form.querySelector('input[name="video"]').files;
 
-                        if (!imageFiles || imageFiles.length === 0) {
-                            throw new Error('ກະລຸນາເລືອກຮູບພາບຢ່າງໜ້ອຍ 1 ຮູບ');
-                        }
-                        if (!videoFiles || videoFiles.length === 0) {
-                            throw new Error('ກະລຸນາເລືອກວິດີໂອຢ່າງໜ້ອຍ 1 ໄຟລ໌');
-                        }
+                        // if (!imageFiles || imageFiles.length === 0) {
+                        //     throw new Error('ກະລຸນາເລືອກຮູບພາບຢ່າງໜ້ອຍ 1 ຮູບ');
+                        // }
+                        // if (!videoFiles || videoFiles.length === 0) {
+                        //     throw new Error('ກະລຸນາເລືອກວິດີໂອຢ່າງໜ້ອຍ 1 ໄຟລ໌');
+                        // }
 
                         await saveProduct(
                             formData.get("productID"),
